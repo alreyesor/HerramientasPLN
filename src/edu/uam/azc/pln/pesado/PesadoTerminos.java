@@ -99,10 +99,7 @@ public class PesadoTerminos {
                 	   frecuenciaTermino++;
                    } 
                } 
-              if(frecuenciaTermino==0)
-                    tf=0;
-              else
-                  tf=(float)(Math.log10(1+frecuenciaTermino));
+                 tf= (float)(frecuenciaTermino);
               
               // Calcular IDF
 
