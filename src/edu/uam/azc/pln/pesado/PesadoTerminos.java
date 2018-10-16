@@ -16,24 +16,33 @@ public class PesadoTerminos {
        
     	
     
-    	ArrayList<String> doc1 = new ArrayList<>(Arrays.asList("acusar", "robar", "transeúnte"));
-    	ArrayList<String> doc2 = new ArrayList<>(Arrays.asList("silvia", "secuestrar", "2017"));
-    	ArrayList<String> doc3 = new ArrayList<>(Arrays.asList("juan", "patricia", "asesinar", "10", "mujeres"));
+    	ArrayList<String> noticia1 = new ArrayList<>(Arrays.asList("acusar", "robar", "transeúnte"));
+    	ArrayList<String> noticia2 = new ArrayList<>(Arrays.asList("silvia", "secuestrar", "2017"));
+    	ArrayList<String> noticia2 = new ArrayList<>(Arrays.asList("juan", "patricia", "asesinar", "10", "mujeres"));
 
-        ArrayList<ArrayList<String>> documentos = new ArrayList<>(Arrays.asList(doc1, doc2, doc3));
+        ArrayList<ArrayList<String>> noticias = new ArrayList<>(Arrays.asList(noticia1, noticia2, noticia3));
         
         ArrayList<String> dicc = new ArrayList<>(Arrays.asList("acusar", "robar", "transeúnte", "silvia", "secuestrar", "2017", "juan", "patricia", "asesinar", "10", "mujeres"));
     
         PesadoTerminos pesado = new PesadoTerminos();
-   
-        ArrayList<Boolean> bol= pesado.pesadoBooleano(doc1, dicc);
-        System.out.println(bol);
         
-        ArrayList<Integer> tf= pesado.pesadoFT(doc1, dicc);
-        System.out.println(tf);
+        // Pesado Booleano
+        for(ArrayList<String> not: noticias){
+        	ArrayList<Boolean> bol= pesado.pesadoBooleano(not, dicc);
+        	System.out.println(bol);
+        }
+        // Pesado TF
+        for(ArrayList<String> not: noticias){
+        	ArrayList<Integer> tf= pesado.pesadoFT(not, dicc);
+        	System.out.println(tf);
+        }
+        
+        //Pesado TFIDF
+        for(ArrayList<String> not: noticias){
+        ArrayList<Double> tfidf= pesado.pesadoTFIDF(not, dicc,noticias);
+             System.out.println(tfidf);
+        }
 
-        ArrayList<Double> tfidf= pesado.pesadoTFIDF(doc1, dicc,documentos);
-        System.out.println(tfidf);
        
     }
     
