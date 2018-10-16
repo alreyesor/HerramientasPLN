@@ -15,27 +15,26 @@ public class PesadoTerminos {
     public static void main(String[] args)  {
        
     	
-    	ArrayList<String> doc1 = new ArrayList<>(Arrays.asList("Lorem", "ipsum", "dolor", "ipsum", "sit", "ipsum"));
-    	ArrayList<String> doc2 = new ArrayList<>(Arrays.asList("Vituperata", "incorrupte", "at", "ipsum", "pro", "quo"));
-    	ArrayList<String> doc3 = new ArrayList<>(Arrays.asList("Has", "persius", "disputationi", "id", "simul"));
+    
+    	ArrayList<String> doc1 = new ArrayList<>(Arrays.asList("acusar", "robar", "transeúnte"));
+    	ArrayList<String> doc2 = new ArrayList<>(Arrays.asList("silvia", "secuestrar", "2017"));
+    	ArrayList<String> doc3 = new ArrayList<>(Arrays.asList("juan", "patricia", "asesinar", "10", "mujeres"));
+
         ArrayList<ArrayList<String>> documentos = new ArrayList<>(Arrays.asList(doc1, doc2, doc3));
         
-        ArrayList<String> dicc = new ArrayList<>(Arrays.asList("ipsum", "dolor","nada"));
+        ArrayList<String> dicc = new ArrayList<>(Arrays.asList("acusar", "robar", "transeúnte", "silvia", "secuestrar", "2017", "juan", "patricia", "asesinar", "10", "mujeres"));
     
         PesadoTerminos pesado = new PesadoTerminos();
-        // Pesado Booleano
+   
         ArrayList<Boolean> bol= pesado.pesadoBooleano(doc1, dicc);
         System.out.println(bol);
         
-        //for(ArrayList<String> doc: documentos){
-        	ArrayList<Integer> tf= pesado.pesadoFT(doc1, dicc);
-        	System.out.println(tf);
-        
-        
-        	 ArrayList<Double> tfidf= pesado.pesadoTFIDF(doc1, dicc,documentos);
-             System.out.println(tfidf);
+        ArrayList<Integer> tf= pesado.pesadoFT(doc1, dicc);
+        System.out.println(tf);
+
+        ArrayList<Double> tfidf= pesado.pesadoTFIDF(doc1, dicc,documentos);
+        System.out.println(tfidf);
        
-    
     }
     
     /**
@@ -126,6 +125,4 @@ public class PesadoTerminos {
            }
            return pesos;
        }
-       
-   
 }
